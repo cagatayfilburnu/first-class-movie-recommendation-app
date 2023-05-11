@@ -152,6 +152,7 @@ elif page == "Contributors":
     url_2 = "http://www.linkedin.com/in/batuhanmecit"
     url_3 = "https://www.linkedin.com/in/meryem-gul-kartal/"
     url_4 = "https://www.linkedin.com/in/cagatayfilburnu/"
+    url_5 = "https://github.com/cagatayfilburnu/first-class-movie-recommendation-app"
     st.info("LinkedIn:")
     st.markdown("- " + "[Ahmet Şimşek]({})".format(url_1))
     st.markdown("- " + "[Batuhan Mecit]({})".format(url_2))
@@ -162,7 +163,8 @@ elif page == "Contributors":
     1. https://docs.streamlit.io/
     2. https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset
     3. https://www.kaggle.com/datasets/rajugc/imdb-top-250-movies-dataset
-    """)
+    3. For the Project GitHub Repository, click [here]({})
+    """.format(url_5))
     st.subheader("Thanks to,")
     st.markdown("All YetGen Leaders during this awesome program.")
     st.markdown("İyi ki YetGen <3")
