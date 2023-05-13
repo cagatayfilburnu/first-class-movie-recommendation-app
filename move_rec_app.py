@@ -37,7 +37,7 @@ class MovieSelector:
         self.movies = movies
 
     def select_movie(self, movie_list):
-        index = random.randint(0, 3158)
+        index = random.randint(0, 462)
         selected_movie = movie_list[index]
         if st.sidebar.button('Click here for a random movie!'):
             st.sidebar.info(f"Random film: {selected_movie}")
@@ -74,7 +74,7 @@ hide_table_row_index = """
 def creating_user_df(movies_data, ratings_data):
     df = movies_data.merge(ratings_data, how="left", on="movieId")
     comments_counts = pd.DataFrame(df["title"].value_counts())
-    rare_movies = comments_counts.loc[(comments_counts["title"] <= 1000)].index
+    rare_movies = comments_counts.loc[(comments_counts["title"] <= 10000)].index
     common_movies = df[~df["title"].isin(rare_movies)]
     user_df = common_movies.pivot_table(index=["userId"], columns=["title"], values="rating")
     return user_df
@@ -122,12 +122,11 @@ elif page == "Movie List":
     system. After that, get our recommend movies for you! 
     """)
     st.markdown(hide_table_row_index, unsafe_allow_html=True)
-    st.table(df.columns[1:3158])
+    st.table(df.columns[1:462])
 
 elif page == "Top 250 Movie in IMDB":
     st.markdown("""In this page, you can see the top 250 Movie in IMDB according to users' ratings. 
-    Recommendation System does not contain these movies. However, you can see a random top tier IMDB movie if you click
-    a button left side!
+    Recommendation System does not contain these movies.
     """)
     col_list = ["rank", "name", "rating"]
     st.markdown(hide_table_row_index, unsafe_allow_html=True)
